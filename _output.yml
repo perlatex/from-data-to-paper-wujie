@@ -1,0 +1,5 @@
+bookdown::word_document2: 
+  #reference_docx: template.docx
+  toc: yes
+
+  

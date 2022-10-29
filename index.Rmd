@@ -1,0 +1,56 @@
+--- 
+title: "服务型领导对 C 酒店员工主观幸福感的影响研究"
+author: "吴杰"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: book.bib
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the officedown package to write a Word document."
+---
+
+
+
+```{r setup, include=FALSE}
+options(digits = 3, 
+        dplyr.print_min = 6, 
+        dplyr.print_max = 6,
+        formatR.indent = 2, 
+        width = 90
+        )
+
+knitr::opts_chunk$set(
+        echo         = FALSE, 
+        warning      = FALSE, 
+        message      = FALSE,
+        fig.cap      = TRUE,
+        fig.align    = "center", 
+        out.width    = "100%",
+        fig.width    = 5, 
+        fig.asp      = 0.618,
+        dpi          = 300, 
+        fig.showtext = TRUE
+    )
+```
+
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(flextable)
+library(palmerpenguins)
+```
+
+
+
+# 摘要 {-}
+
+作为劳动密集型行业的酒店，在企业日益快速发展和激烈竞争下，管理人员除了提高员工的物质层面的需求，也逐步开始关注员工主观幸福感的提升，酒店行业的员工工作时间和休闲时间存在着一定的时间差，休息日节假日是他们最忙碌的时间，工作倦怠感和低情绪劳动现象比较严重，这些因素降低了员工幸福感，员工心理情绪不高涨导致服务下降，进而影响了顾客满意度，酒店的用户黏度下降。酒店管理者作为与员工经常接触者，其领导方式和领导水平对员工的工作态度和工作情绪会产生直接影响。同时员工在工作中存在关系需要、胜任需要和自主需要等基本心理需要满足需求，服务型领导通过满足员工利益、尊重员工、授权等行为方式可以在一定程度上满足员工基本心理需要，进一步提升员工主观幸福感。
+
+通过对国内外文献资料进行梳理，确定了服务型领导、基本心理需求和主观幸福感的衡量维度，采用问卷调查法，调查并分析了 C 酒店，通过 SPSS 21.0开展了回归分析、相关分析以及描述性分析。获得下述主要结论：第一，服务型领导对酒店员工主观幸福感有显著的正向影响。第二，服务型领导对酒店员工基本心理需要满足有显著的正向影响。第三，基本心理需要满足对酒店员工主观幸福感有显著正向影响。可以通过对关系需要、胜任需要和自主需要等基本心理需求的满足来提升酒店员工的主观幸福感。第四，对于服务型领导以及员工的幸福感而言，基本心理需要发挥了重要的桥梁作用。服务型领导通过满足酒店员工的基本心理需要，使员工对工作和生活充满幸福感。论文最后基于研究结论进一步回应本文研究的主体意义。
+
+
+关键词: 服务型领导；主观幸福感；基本心理需求；实证研究
+
+\newpage

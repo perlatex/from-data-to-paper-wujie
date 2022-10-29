@@ -1,0 +1,19 @@
+book_filename: "well-being"
+new_session: false
+delete_merged_file: true
+language:
+  label:
+    fig: '图 '
+    tab: '表 '
+    
+rmd_files: [
+  "index.Rmd",
+
+  "01-intro.Rmd",
+  "02-review.Rmd",
+  "03-method.Rmd",
+  "04-data-analysis.Rmd",
+  "05-conclusion.Rmd",
+  "06-references.Rmd"
+  
+]

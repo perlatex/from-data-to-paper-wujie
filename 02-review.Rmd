@@ -1,0 +1,39 @@
+# 相关理论及文献综述 {#review}
+
+## 服务型领导概念的界定
+
+通过对领导者与被领导者的人际关系和任务关系，我们把领导风格的类型分成六类：以人格魅力为主导的魅力型领导，以发展变革为主导的变革型领导，以利益交换为主导的交易型领导，以行政命令为主导的家长式领导，以集体团队为主导的参与式领导和以满足下属为主导的服务型领导。服务型领导最早源于罗伯特·K·格林里夫(Robert K. Greenleaf)(1970)所著的《仆人式领导（the servant as leader）》，他指出，领导应该用自己的威望和服务来换取人民的信任，从而确定自己的领导地位，与其他领导者不一样，服务型领导应该首先应该关注他人的需求是否得到满足，以确定领导地位、领导威信以及领导影响力，然后再去谈服务。服务型领导应该让其追随者在工作中有自主性，能够得到授权，同时实现个人物质利益和精神利益最大化。领导者不应该是下属的命令者，而应该是引领者，能够信任和接纳下属，表现出利他主义，事事以他人为先，帮助和鼓励下属自我提升，促进他们成长。
+
+
+
+
+Laub(1999)则认为，服务型领导是一种全新的定位，它赋予了其另外一个概念，那就是领导把自身利益放在了下属利益之下，一切以被领导者利益为主。Page&Wong(2000)将服务型领导定义为通过服务和满足追随者的利益，促进追随者的发展，进而实现组织目标和组织任务的一种领导方式。看看图 \@ref(fig:fig-test)
+
+
+```{r fig-test, fig.asp= 0.4, out.width= "95%", echo=FALSE, fig.cap = "没什么好说的"}
+library(palmerpenguins)
+penguins %>%
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(data = penguins %>% select(-species), color = "gray80") +
+  geom_point(aes(color = species)) +
+  facet_wrap(vars(species), ncol = 3) +
+  guides(color = guide_none())
+```
+
+
+
+
+
+## 你确定不需要一两个公式
+
+配个公式 \@ref(eq:mean).
+
+\begin{equation}
+\bar{X} = \frac{\sum_{i=1}^n X_i}{n} (\#eq:mean)
+\end{equation}
+
+
+
+
+
+\newpage

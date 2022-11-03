@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
         out.width    = "100%",
         fig.width    = 5, 
         fig.asp      = 0.618,
+        dev          = "ragg_png",
         dpi          = 300, 
         fig.showtext = TRUE
     )
@@ -38,6 +39,7 @@ knitr::opts_chunk$set(
 
 ```{r include=FALSE}
 library(tidyverse)
+library(ragg)
 library(flextable)
 library(palmerpenguins)
 ```

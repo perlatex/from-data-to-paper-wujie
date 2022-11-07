@@ -6,6 +6,7 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
 biblio-style: apalike
+csl: apa-5th-edition.csl
 link-citations: yes
 description: "This is a minimal example of using the officedown package to write a Word document."
 ---

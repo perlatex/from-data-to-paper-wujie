@@ -14,6 +14,8 @@ rmd_files: [
   "03-method.Rmd",
   "04-data-analysis.Rmd",
   "05-conclusion.Rmd",
-  "06-references.Rmd"
+  "06-references.Rmd",
+  
+  "Appendix.Rmd"
   
 ]

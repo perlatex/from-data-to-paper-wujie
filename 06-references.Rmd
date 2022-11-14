@@ -1,3 +1,5 @@
-# 参考文献
+# 参考文献 {-}
 
 <div id="refs"></div>
+
+\newpage

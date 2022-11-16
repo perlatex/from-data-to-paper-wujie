@@ -5,4 +5,4 @@
 
 运行前需要安装以下宏包：
 
-`install.packages(c("tidyverse", "palmerpenguins", "gt", "readxl", "haven", "psych", "broom", "flextable", "bookdown", "gtsummary", "modelsummary", "ggstatsplot", "ragg"))`
+`install.packages(c("tidyverse", "palmerpenguins", "gt", "readxl", "haven", "psych", "broom", "officedown", "officer", "flextable", "bookdown", "gtsummary", "modelsummary", "ggstatsplot", "ragg"))`

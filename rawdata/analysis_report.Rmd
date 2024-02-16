@@ -1,0 +1,132 @@
+---
+title: "从数据到论文"
+author: "姓名"
+date: "`r Sys.Date()`"
+output: 
+  officedown::rdocx_document:
+    number_sections: yes
+    df_print: kable
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    echo         = FALSE,
+    warning      = FALSE, 
+    message      = FALSE,
+    fig.width    = 5, 
+    fig.asp      = 0.618,
+    dpi          = 600
+)
+options(digits = 3)
+```
+
+
+我们的课程目标：用R语言生成一份完整的word分析报告，内容包括读取数据，画出图形以及建立模型。
+
+
+
+```{r}
+library(tidyverse)
+
+d <- haven::read_sav("raw.sav")
+
+# sjPlot::view_df(d)
+```
+
+```{r}
+library(gtsummary)
+library(haven)
+
+d %>% 
+  select(1:7) %>% 
+  rename(
+    gender = Q1, age = Q2, education = Q3, experience = Q4,
+    position = Q5, scale = Q6, salary = Q7
+  ) %>%
+  mutate(
+    across(everything(), haven::as_factor)
+  ) %>% 
+  gtsummary::tbl_summary(  ) 
+```
+
+
+
+
+# 实证研究
+
+```{r,eval=FALSE}
+d1 <- d %>% 
+   mutate(
+    across(c(Q8:Q45), labelled::remove_labels)
+  ) %>% 
+  rowwise() %>%
+  transmute(
+    x1 = mean(c_across(Q8:Q10)),     # 情绪抚慰
+    x2 = mean(c_across(Q11:Q13)),    # 说服引导
+    x3 = mean(c_across(Q14:Q16)),    # 利他主义
+    x4 = mean(c_across(Q17:Q19)),    # 智慧
+    x5 = mean(c_across(Q20:Q22)),    # 社会责任感
+    
+    m1 = mean(c_across(Q23:Q26)),    # 关系需要
+    m2 = mean(c_across(Q27:Q30)),    # 胜任需要 
+    m3 = mean(c_across(Q31:Q34)),    # 自主需要
+    
+    y1 = mean(c_across(Q35:Q42)),    # 总体情感指数   
+    y2 = mean(c_across(Q43:Q45))     # 生活满意度
+  )
+```
+
+
+
+
+
+
+
+```{r}
+d1 %>% 
+  psych::describe() %>% 
+  rownames_to_column(var = "item") %>% 
+  select(item, mean, sd, min, max, skew, kurtosis) %>% 
+  flextable::flextable() %>% 
+  flextable::autofit() %>% 
+  flextable::set_caption("描述性统计分析")
+```
+
+# 表 4-2 信度分析
+
+
+```{r}
+library(lavaan)
+
+model <- "
+    x1 =~ Q8  +  Q9 + Q10                             
+    x2 =~ Q11 + Q12 + Q13
+    x3 =~ Q14 + Q15 + Q16
+    x4 =~ Q17 + Q18 + Q19
+    x5 =~ Q20 + Q21 + Q22
+    
+    
+    m1 =~ Q23 + Q24 + Q25 + Q26
+    m2 =~ Q27 + Q28 + Q29 + Q30
+    m3 =~ Q31 + Q32 + Q33 + Q34
+    
+    y1 =~ Q35 + Q36 + Q37 + Q38 + Q39 + Q40 + Q41 + Q42 
+    y2 =~ Q43 + Q44 + Q45                    
+"
+
+fit_cfa <- cfa(model, data = d)
+```
+
+
+```{r}
+fit_cfa %>% 
+  parameterestimates(standardized = TRUE) %>% 
+  select(lhs, op, rhs, std.all) %>% 
+  flextable::flextable() %>% 
+  flextable::autofit() %>% 
+  flextable::colformat_double(digits = 3)
+```
+
+
+
